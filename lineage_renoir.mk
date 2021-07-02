@@ -22,11 +22,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 $(call inherit-product, device/xiaomi/renoir/device.mk)
 
 # Inherit some common TWRP stuff.
-$(call inherit-product, vendor/twrp/config/common.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := renoir
-PRODUCT_NAME := twrp_renoir
+PRODUCT_NAME := lineage_renoir
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 11 Lite 5G
 PRODUCT_MANUFACTURER := Xiaomi
