@@ -85,8 +85,9 @@ BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000
 KERNEL_LD := LD=ld.lld
 TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CONFIG := vendor/renoir-qgki_defconfig
+TARGET_KERNEL_CONFIG := renoir_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/renoir
+NEED_KERNEL_MODULE_RECOVERY := true
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true

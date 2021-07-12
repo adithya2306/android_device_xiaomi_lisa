@@ -1,13 +1,5 @@
 import /init.recovery.qcom_decrypt.rc
 
-service touchfeature /system/bin/vendor.xiaomi.hw.touchfeature@1.0-service
-    user root
-    group root
-    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
-
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     # Create location for fs_mgr to store abbreviated output from filesystem
@@ -25,9 +17,3 @@ on fs
 on boot
     start health-hal-2-1
     setprop sys.usb.config adb
-
-    # Xiaomi touch
-    mknod /dev/xiaomi_touch c 10 120
-    chown system system /dev/xiaomi-touch
-    chmod 0664 /dev/xiaomi-touch
-    start touchfeature

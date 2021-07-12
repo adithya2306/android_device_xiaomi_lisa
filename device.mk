@@ -64,7 +64,8 @@ TARGET_SCREEN_WIDTH := 1080
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/qcom-caf/bootctrl
+    hardware/qcom-caf/bootctrl \
+    vendor/qcom/opensource/commonsys-intf/display
 
 # Update engine
 PRODUCT_PACKAGES += \
@@ -95,14 +96,22 @@ TARGET_USES_MKE2FS := true
 TW_NO_SCREEN_BLANK := true
 TW_EXCLUDE_APEX := true
 
+# Crypto
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
+PLATFORM_VERSION := 16.1.0
+BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
     libdisplayconfig.qti \
     libion \
     vendor.display.config@1.0 \
-    vendor.display.config@2.0
+    vendor.display.config@2.0 \
+    libdisplayconfig.qti
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \

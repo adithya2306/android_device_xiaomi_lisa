@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/lineage_renoir.mk
+     $(LOCAL_DIR)/twrp_renoir.mk
