@@ -25,7 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on boot
+on init
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     mount configfs none /config
     mkdir /config/usb_gadget/g1 0770
@@ -44,36 +44,7 @@ on boot
     mkdir /config/usb_gadget/g1/functions/mass_storage.0
     mkdir /config/usb_gadget/g1/functions/mtp.gs0
     mkdir /config/usb_gadget/g1/functions/ptp.gs1
-    mkdir /config/usb_gadget/g1/functions/accessory.gs2
-    mkdir /config/usb_gadget/g1/functions/audio_source.gs3
-    mkdir /config/usb_gadget/g1/functions/midi.gs5
     mkdir /config/usb_gadget/g1/functions/ffs.adb
-
-    
-    mkdir /config/usb_gadget/g1/functions/ffs.diag
-    mkdir /config/usb_gadget/g1/functions/ffs.diag_mdm
-    mkdir /config/usb_gadget/g1/functions/ffs.diag_mdm2
-    mkdir /config/usb_gadget/g1/functions/diag.diag
-    mkdir /config/usb_gadget/g1/functions/diag.diag_mdm
-    mkdir /config/usb_gadget/g1/functions/diag.diag_mdm2
-    mkdir /config/usb_gadget/g1/functions/cser.dun.0
-    mkdir /config/usb_gadget/g1/functions/cser.nmea.1
-    mkdir /config/usb_gadget/g1/functions/cser.dun.2
-    mkdir /config/usb_gadget/g1/functions/gsi.rmnet
-    mkdir /config/usb_gadget/g1/functions/gsi.rndis
-    mkdir /config/usb_gadget/g1/functions/gsi.dpl
-    mkdir /config/usb_gadget/g1/functions/qdss.qdss
-    mkdir /config/usb_gadget/g1/functions/qdss.qdss_mdm
-    mkdir /config/usb_gadget/g1/functions/rndis_bam.rndis
-    mkdir /config/usb_gadget/g1/functions/rndis.rndis
-    mkdir /config/usb_gadget/g1/functions/rmnet_bam.rmnet
-    mkdir /config/usb_gadget/g1/functions/rmnet_bam.dpl
-    mkdir /config/usb_gadget/g1/functions/rmnet_bam.rmnet_bam_dmux
-    mkdir /config/usb_gadget/g1/functions/rmnet_bam.dpl_bam_dmux
-    mkdir /config/usb_gadget/g1/functions/ncm.0
-    mkdir /config/usb_gadget/g1/functions/ccid.ccid
-    mkdir /config/usb_gadget/g1/functions/uac2.0
-    mkdir /config/usb_gadget/g1/functions/uvc.0
     mkdir /config/usb_gadget/g1/configs/b.1 0770
     mkdir /config/usb_gadget/g2/configs/b.1 0770
     mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770
@@ -81,14 +52,13 @@ on boot
     write /config/usb_gadget/g1/configs/b.1/MaxPower 900
     write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
     write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
-    write /config/usb_gadget/g1/functions/diag.diag/serial ${ro.serialno}
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
-    mkdir /dev/usb-ffs 0775 shell system
-    mkdir /dev/usb-ffs/adb 0770 shell system
-    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=1000,rmode=0770,fmode=0660
-    write /sys/class/android_usb/android0/f_ffs/aliases adb
     setprop vendor.usb.controller ${sys.usb.controller}
-    enable vendor.qcom-usb-sh
+    setprop sys.usb.mtp.device_type 3
+    setprop sys.usb.configfs 1
+
+on boot
+    mkdir /dev/usb-ffs 0775 shell system
     mkdir /config/usb_gadget/g1/functions/ffs.mtp
     mkdir /config/usb_gadget/g1/functions/ffs.ptp
     mkdir /dev/usb-ffs/mtp 0770 mtp mtp
