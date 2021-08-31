@@ -1,14 +1,9 @@
 [
- {
-   "repository"  : "android_device_qcom_twrp-common",
-   "target_path" : "device/qcom/twrp-common",
-   "remote"      : "TeamWin",
-   "revision"    : "android-11"
- },
- {
-   "repository"  : "android_hardware_qcom_bootctrl",
-   "target_path" : "hardware/qcom-caf/bootctrl",
-   "remote"      : "LineageOS",
-   "revision"    : "lineage-18.1-caf"
- }
+  {
+    "remote": "github",
+    "repository": "nebrassy/android_kernel_xiaomi_renoir",
+    "target_path": "kernel/xiaomi/renoir",
+    "revision": "android-11"
+  }
 ]
+
