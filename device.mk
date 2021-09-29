@@ -105,6 +105,8 @@ VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 BOARD_USES_QCOM_FBE_DECRYPTION := true
 
+TW_LOAD_VENDOR_MODULES := "goodix_core.ko focaltech_touch.ko"
+
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
     libdisplayconfig.qti \
