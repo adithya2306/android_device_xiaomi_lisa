@@ -28,6 +28,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 LOCAL_PATH := device/xiaomi/renoir
 
+include kernel/xiaomi/renoir/Android.mk
+
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
 
