@@ -7,7 +7,8 @@
 /metadata      ext4    /dev/block/bootdevice/by-name/metadata                    flags=display="Metadata"
 /data          ext4    /dev/block/bootdevice/by-name/userdata                    fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption
 /boot          emmc    /dev/block/bootdevice/by-name/boot                        flags=backup=1;flashimg=1;slotselect
-/dtbo          emmc    /dev/block/bootdevice/by-name/dtbo                        flags=backup=1;display="Dtbo";flashimg=1;slotselect
+/vendor_boot   emmc    /dev/block/bootdevice/by-name/vendor_boot                 flags=backup=1;display="Vendor Boot";flashimg=1;slotselect
+/dtbo          emmc    /dev/block/bootdevice/by-name/dtbo                        flags=backup=1;display="DTBO";flashimg=1;slotselect
 /firmware      vfat    /dev/block/bootdevice/by-name/modem                       flags=display="Firmware";slotselect;mounttodecrypt;fsflags=ro
 /cust          ext4    /dev/block/bootdevice/by-name/cust                        flags=display="Cust"
 /misc          emmc    /dev/block/bootdevice/by-name/misc                        flags=display="Misc"
@@ -23,4 +24,4 @@
 
 # Removable storage
 /usbstorage    vfat    /dev/block/sdg1                    /dev/block/sdg         flags=fsflags=utf8;display="USB Storage";storage;wipeingui;removable
-/external_sd   vfat    /dev/block/mmcblk1p1               /dev/block/mmcblk1     flags=display="MicroSD";storage;wipeingui;removable
+/external_sd   vfat    /dev/block/mmcblk0p1               /dev/block/mmcblk0     flags=display="MicroSD";storage;wipeingui;removable

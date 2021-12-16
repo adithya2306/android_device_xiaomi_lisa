@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/twrp_renoir.mk
+     $(LOCAL_DIR)/twrp_lisa.mk

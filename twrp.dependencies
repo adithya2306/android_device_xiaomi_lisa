@@ -1,9 +1,0 @@
-[
-  {
-    "remote": "github",
-    "repository": "nebrassy/android_kernel_xiaomi_renoir",
-    "target_path": "kernel/xiaomi/renoir",
-    "branch": "android-11"
-  }
-]
-

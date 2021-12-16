@@ -16,7 +16,7 @@
 
 
 cc_library {
-    name: "libgptutils.renoir",
+    name: "libgptutils.lisa",
     vendor: true,
     recovery_available: true,
     shared_libs: [
@@ -36,7 +36,7 @@ cc_library {
     ],
     owner: "qti",
     header_libs: [
-        "generated_kernel_headers",
+        "device_kernel_headers",
     ],
     export_include_dirs: ["."],
 }
