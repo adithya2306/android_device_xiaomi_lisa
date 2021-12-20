@@ -24,3 +24,10 @@ on property:twrp.modules.loaded=true
     wait /sys/class/power_supply/battery
     start health-hal-2-1
     setprop sys.usb.config mtp,adb
+
+on property:sys.usb.config=fastboot
+   start servicemanager
+   start hwservicemanager
+   start boot-hal-1-1
+   start health-hal-2-1
+   restart fastbootd
